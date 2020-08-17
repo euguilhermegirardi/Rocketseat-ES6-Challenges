@@ -1,12 +1,11 @@
-//EXERCICIO1
-
-class Usuario {
-  constructor(email, senha){
+// EXERCISE 01
+class User {
+  constructor(email, password){
       this.email = email;
-      this.senha = senha;
+      this.password = password;
   }
-  isAdmin(){
-      if(this.admin === true){
+  isAdm(){
+      if(this.adm === true){
           return true;
       } else {
           return false;
@@ -14,49 +13,58 @@ class Usuario {
   }
 }
 
-class Admin extends Usuario {
+class Adm extends User {
   constructor(){
       super();
-      this.admin = true;
+      this.adm = true;
   }
 }
 
-const admin = new Admin('renatoslip@hotmail.com', 123);
-const usuario =  new Usuario('diego3g@rocketseat.com.br', 12345);
+const admin = new Adm('girardi.gui@icloud.com', 123);
+const user =  new User('gui.girardi02@hotmail.com', 12345);
 
 
-console.log(admin.isAdmin());
-console.log(usuario.isAdmin());
+console.log(admin.isAdm());
+console.log(user.isAdm());
 
 
-//EXERCICIO 2
 
-const usuarios = [
-  {nome: 'Renato', idade: 31, empresa: 'Rocketseat'},
-  {nome: 'Diego', idade: 23, empresa: 'Rocketseat'},
-  {nome: 'Gabriel', idade: 18, empresa: 'Google'}
+// <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+
+
+
+//EXERCISE 2
+const users = [
+  {name: 'Renato', age: 31, company: 'Rocketseat'},
+  {name: 'Diego', age: 23, company: 'Rocketseat'},
+  {name: 'Gabriel', age: 18, company: 'Google'}
 ]
 
-//2.1 map - array com a idade de todos
-const idades = usuarios.map(usuario => usuario.idade);
-console.log(idades);
+//2.1 Map - Array with all ages
+const ages = users.map(user => user.age);
+console.log(ages);
 
-//2.2 filter - variavel que tenha apenas quem trabalhe na rocketseat e mais de 20 anos
-const rocket = usuarios.filter(usuario => usuario.empresa ==='Rocketseat' && usuario.idade >20);
+//2.2 Filter - Variable with those who works at Rocketseat and have more than 20 years old.
+const rocket = users.filter(user => user.company ==='Rocketseat' && user.age >20);
 console.log(rocket);
 
-//2.3 find - variável que procura por um usuário que trabalhe na empresa Google
-const google = usuarios.find(usuario => usuario.empresa ==='Google');
+//2.3 Find - Variable that searches for a user who works at Google.
+const google = users.find(user => user.company ==='Google');
 console.log(google);
 
-//2.4 unindo operações - Multiplique a idade de todos usuários por dois e depois realize um filtro nos usuários que possuem no max 50 anos
-const usuariosMenor50 = usuarios.map(usuario => ({...usuario, idade: usuario.idade *2})).filter(usuario => usuario.idade <=50);
-console.log(usuariosMenor50);
+//2.4 Uniting Operations - Multiply the age of all users by 2 and filter those who are 50 (max).
+const userLessThan50 = users.map(user => ({...user, age: user.age *2})).filter(user => user.age <=50);
+console.log(userLessThan50);
 
 
-//EXERCICIO 3
 
-//converta em array funcion
+// <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+
+
+//EXERCISE 3
+// Convert into array function
 
 // 3.1
 //const arr = [1, 2, 3, 4, 5];
@@ -68,30 +76,23 @@ const arr =[1, 2, 3, 4, 5];
 arr.map(item => item +10);
 
 // 3.2
-// Dica: Utilize uma constante pra function
-// const usuario = { nome: 'Diego', idade: 23 };
-// function mostraIdade(usuario) {
-// return usuario.idade;
-// }
-// mostraIdade(usuario);
-const usuario3 ={
+const user3 ={
   nome: 'Renato',
-  idade: 31
+  age: 31
 }
-const mostraIdade = (usuario3 => usuario3.idade);
-console.log(mostraIdade(usuario3));//31
+const showAge = (user3 => user3.age);
+console.log(showAge(user3));//31
 
 
 // 3.3
-// Dica: Utilize uma constante pra function
-const nome3 = "Diego";
-const idade3 = 23;
-// function mostraUsuario(nome = 'Diego', idade = 18) {
-// return { nome, idade };
+const name3 = "Diego";
+const age3 = 23;
+// function showUser(name = 'Diego', age = 18) {
+// return { name, age };
 // }
-const mostraUsuario3 = (nome = 'Diego', idade =18) => ({nome, idade});
-console.log(mostraUsuario3(nome3, idade3));
-console.log(mostraUsuario3(nome3));
+const showUser3 = (name = 'Diego', age =18) => ({name, age});
+console.log(showUser3(name3, age3));
+console.log(showUser3(name3));
 
 
 //// 3.4
@@ -103,43 +104,40 @@ console.log(mostraUsuario3(nome3));
 const promise = () => new Promise((resolve, reject) => resolve());
 
 
-//EXERCICIO 4
 
-// 4.1 - DESESTRUTURAÇÃO SIMPLES
-const empresa4 = {
-  nome: 'Rocketseat',
-  endereco: {
-      cidade: 'Rio do Sul',
-      estado: 'SC',
+// <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+
+
+//EXERCISE 4
+// 4.1 - SIMPLE DESTRUCTURING
+const company4 = {
+  name: 'Rocketseat',
+  address: {
+      city: 'Rio do Sul',
+      UF: 'SC',
   }
 };
 
-// Utilize a desestruturação para transformar as propriedades nome, cidade e estado em variáveis, no
-// fim deve ser possível fazer o seguinte:
-
-const {nome, endereco: {cidade, estado}} = empresa4;
+const {name, address: {city, UF}} = company4;
 console.log(nome); // Rocketseat
-console.log(cidade); // Rio do Sul
-console.log(estado); // SC
+console.log(city); // Rio do Sul
+console.log(UF); // SC
 
 
-//4.1 - DESESTRUTURAÇÃO EM PARAMETROS
-// Na seguinte função:
-// function mostraInfo(usuario) {
-// return `${usuario.nome} tem ${usuario.idade} anos.`;
-// }
-// mostraInfo({ nome: 'Diego', idade: 23 })
-
-// Utilize a desestruturação nos parâmetros da função para buscar o nome e idade do usuário
-// separadamente e a função poder retornar apenas:
-// return `${nome} tem ${idade} anos.`;
-function mostraInfo({nome, idade}) {
-  return `${nome} tem ${idade} anos.`;
+//4.1 - PARAMETERS DESTRUCTURING
+function showInfo({name, age}) {
+  return `${name} tem ${age} anos.`;
 }
-console.log(mostraInfo({nome: 'Diego', idade: 23}));
+console.log(showInfo({name: 'Diego', age: 23}));
 
 
-//EXERCICIO 5 - REST/SPREAD
+
+// <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+
+
+//EXERCISE 5 - REST/SPREAD
 //5.1 - REST
 const arr5 = [1, 2, 3, 4, 5, 6];
 const [x, ...y] = arr5;
@@ -152,43 +150,53 @@ console.log(soma(1, 2)); // 3
 
 
 //5.2 - SPREAD
-const usuario5 ={
-  nome: 'Renato',
-  idade: 31,
-  endereco: {
-      cidade: 'Rio de Janeiro',
+const user5 ={
+  name: 'Renato',
+  age: 31,
+  address: {
+      city: 'Rio de Janeiro',
       uf: 'RJ',
-      pais: 'Brasil'
+      country: 'Brasil'
   }
 }
 
-const usuario51 = {...usuario5, nome: 'Gabriel'};
-console.log(usuario51);
+const user51 = {...user5, name: 'Gabriel'};
+console.log(user51);
 
-const usuario52 = {...usuario5, endereco: {...usuario5.endereco, cidade: 'Lontras'}};
-console.log(usuario52);
-
-
-//EXERCICIO 6 - TEMPLATE LITERALS
-// converta:
-const usuario6 = 'Diego';
-const idade6 = 23;
-// console.log('O usuário ' + usuario + ' possui ' + idade + ' anos');
-console.log(`O usuário ${usuario6} possui ${idade6} anos`);
+const user52 = {...user5, address: {...user5.address, city: 'London'}};
+console.log(user52);
 
 
-//EXERCICIO 7 - Object Short Syntax
-const nome7 = 'Renato';
-const idade7 = 31;
-// const usuario = {
-//     nome: nome,
-//     idade: idade,
-//     cidade: 'Rio do Sul',
+
+// <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+
+
+//EXERCISE 6 - TEMPLATE LITERALS
+// Convert:
+const user6 = 'Diego';
+const age6 = 23;
+// console.log('The user ' + user + ' has ' + age + ' years');
+console.log(`The user ${user6} has ${age6} years`);
+
+
+
+// <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+
+
+//EXERCISE 7 - Object Short Syntax
+const name7 = 'Renato';
+const age7 = 31;
+// const user = {
+//     name: name,
+//     age: age,
+//     city: 'Rio do Sul',
 // };
-const usuario7 = {
-  nome7,
-  idade7,
-  cidade: 'Rio de Janeiro'
+const user7 = {
+  name7,
+  age7,
+  city: 'Rio de Janeiro'
 }
 
-console.log(usuario7);
+console.log(user7);
