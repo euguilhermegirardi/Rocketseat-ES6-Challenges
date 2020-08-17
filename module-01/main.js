@@ -55,7 +55,7 @@ console.log(rocket);
 const google = users.find(user => user.company ==='Google');
 console.log(google);
 
-//2.4 Uniting Operations - Multiply the age of all users by 2 and filter those who are 70 (max).
+//2.4 Joining Operations - Multiply the age of all users by 2 and filter those who are 70 (max).
 const userLessThan50 = users.map(user => ({...user, age: user.age *2})).filter(user => user.age < 70);
 console.log(userLessThan50);
 
