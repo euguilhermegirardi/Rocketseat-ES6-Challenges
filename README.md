@@ -6,7 +6,7 @@
   Rocketseat ES6 Challenges :book:
 </h3>
 
-<p align="center">This project is just the final exercises of each Rocketseat Javascript course module <a href="https://skylab.rocketseat.com.br/journey/starter">JavaScript Starter</a> 🎓
+<p align="center">This project is just the final exercises of each Rocketseat ES6 course module <a href="https://skylab.rocketseat.com.br/journey/starter">ES6 Starter</a> 🎓
 </p>
 
 ## Contributing
