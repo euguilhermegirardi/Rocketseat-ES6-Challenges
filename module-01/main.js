@@ -120,7 +120,7 @@ const company4 = {
 };
 
 const {name, address: {city, UF}} = company4;
-console.log(nome); // Rocketseat
+console.log(name); // Rocketseat
 console.log(city); // Rio do Sul
 console.log(UF); // SC
 
