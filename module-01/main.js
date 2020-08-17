@@ -48,7 +48,7 @@ const ages = users.map(user => user.age);
 console.log(ages);
 
 //2.2 Filter - Variable with those who works at Rocketseat and have more than 20 years old.
-const rocket = users.filter(user => user.company ==='Rocketseat' && user.age >20);
+const rocket = users.filter(user => user.company ==='Rocketseat' && user.age > 20);
 console.log(rocket);
 
 //2.3 Find - Variable that searches for a user who works at Google.
@@ -66,7 +66,7 @@ console.log(userLessThan50);
 
 
 //EXERCISE 3
-// Convert into array function
+// Convert into arrow function
 
 // 3.1
 //const arr = [1, 2, 3, 4, 5];
