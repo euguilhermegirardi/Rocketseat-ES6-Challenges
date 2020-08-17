@@ -33,7 +33,7 @@ getUserFromGithub('euguilhermegirardi');
 //     }
 // }
 // Github.getRepositories('rocketseat/rocketseat.com.br');
-// Github.getRepositories('rocketseat/dslkvmskv');
+// Github.getRepositories('rocketseat/dslkasdasdas');
 
 class Github {
     static async getRepositories(repo) {
